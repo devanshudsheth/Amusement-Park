@@ -1,0 +1,23 @@
+DELIMITER $$
+CREATE TRIGGER log_salary_increase
+ AFTER UPDATE ON staff
+   FOR EACH ROW BEGIN
+            declare paydesc varchar(9);
+            if (new.salary != old.salary) then
+             if (new.salary > old.salary) then
+                        set paydesc = 'INCREMENT';
+             else
+                        set paydesc = 'DECREMENT';
+             end if;
+     CASE
+       WHEN (new.salary >= 6000) THEN
+INSERT INTO staff_salary_log(SSN,  SALARY, DATE , SALARY_RANGE, PAY_DESC) VALUES (new.ssn,new.salary, CURRENT_DATE, "High", paydesc);
+       WHEN new.salary >= 2000 and new.salary < 6000 THEN
+INSERT INTO staff_salary_log(SSN, SALARY, DATE , SALARY_RANGE, PAY_DESC) VALUES ( new.ssn, new.salary, CURRENT_DATE, "Medium", paydesc);
+        ELSE
+INSERT INTO staff_salary_log(SSN, SALARY, DATE, SALARY_RANGE, PAY_DESC) VALUES (new.ssn, new.salary, CURRENT_DATE, "Low", paydesc);
+      END CASE;
+              end if;
+END$$
+DELIMITER ;
+

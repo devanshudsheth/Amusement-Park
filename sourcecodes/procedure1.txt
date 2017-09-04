@@ -1,0 +1,43 @@
+delimiter $$
+ 
+CREATE PROCEDURE maintenance_due(INOUT ridelist VARCHAR(4000))
+BEGIN
+declare v_finished integer default 0;
+declare v_ridename varchar(40) default "";
+declare v_rideno varchar(40) default "";
+declare v_ridename1 varchar(40) default "";
+declare v_rideno1 varchar(40) default "";
+declare v_ride varchar(100) default "";
+declare cur1 cursor FOR
+select r.Ride_No, r.Ride_name from ride r, rideequipment rq where r.Ride_No = rq.Ride_No AND  rq.Next_Maintenance_Date = CURRENT_DATE;
+
+declare CONTINUE HANDLER
+for not found set v_finished = 1;
+open cur1;
+getride: LOOP
+fetch cur1 into v_rideno, v_ridename;
+if v_finished = 1 
+     then LEAVE getride;
+end if;
+set v_ridename1 = concat("Ride Name = ", v_ridename);
+set v_rideno1 = concat("Ride No = ", v_rideno);
+set v_ride = CONCAT_ws('	',  v_rideno1, v_ridename1);
+set ridelist = CONCAT_ws('
+', v_ride, ridelist);
+end loop getride;
+close cur1;
+end$$
+
+
+/*CALLING THE PROCEDURE*/
+
+ 
+Set @ridelist="";
+Call maintenance_due(@ridelist);
+Select @ridelist;
+ 
+
+
+
+
+

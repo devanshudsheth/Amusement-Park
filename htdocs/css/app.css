@@ -1,0 +1,67 @@
+@charset "UTF-8";
+body 
+{
+	background-image:url('../resources/images/blackbg.jpg');
+  	margin: 0; 
+  		color:white;
+  	
+}
+
+.white
+{
+	color:white;
+}
+
+
+.tabs
+{
+	border : 0px;
+	background-color : #808080;
+	font-weight : bold;
+}
+
+/* unvisited link */
+.tabs:link {
+    color: white;
+}
+
+/* visited link */
+.tabs:visited {
+    color:white ;
+}
+
+/* mouse over link */
+.tabs:hover {
+    color: red;
+}
+
+
+
+
+.normallinks
+{
+	border : 0px;
+	font-weight : bold;
+	text-decoration : underline;
+}
+
+/* unvisited link */
+.normallinks:link {
+    color: white;
+}
+
+/* visited link */
+.normallinks:visited {
+    color:white ;
+}
+
+/* mouse over link */
+.normallinks:hover {
+    color: red;
+}
+
+
+/* selected link */
+.tabs:active {
+    color: blue;
+}

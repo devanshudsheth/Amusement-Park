@@ -1,0 +1,71 @@
+insert into stall values (1, 'NoodleKing', 'NORTH-EAST', 'Restaurant', null);
+insert into stall values (2, 'BurgerKing', 'SOUTH-EAST', 'Restaurant', null);
+insert into stall values (3, 'SOUVENIR', 'SOUTH', 'Gift', null);
+insert into stall values (4, 'FANCYSTUFF', 'NORTH', 'Gift', null);
+ 
+insert into staff values (5000, 'Chen', '111111111', 8, '1990-4-23', 'M');
+insert into staff values (5000, 'Dev', '111111112', 8, '1990-5-13', 'M');
+insert into staff values (4000, 'Shal', '111111113', 8, '1990-11-13', 'F');
+insert into staff values (7000, 'Michael', '111111114', 8, '1990-10-30', 'M');
+ 
+insert into skilled_labor values ('111111114', 'manager');
+insert into skilled_labor values ('111111113', 'manager');
+insert into skilled_labor values ('111111112', 'manager');
+insert into skilled_labor values ('111111111', 'manager');
+ 
+insert into manager values ('111111114');
+insert into manager values ('111111113');
+insert into manager values ('111111112');
+insert into manager values ('111111111');
+ 
+insert into staff values (9000, 'Jack', '111111116', 10, '1990-11-19', 'M');
+insert into staff values (2000, 'Joseph', '111111117', 10, '1990-09-11', 'M') ;
+insert into staff values (8000, 'Rose', '111111118', 10, '1990-01-31', 'F') ;
+insert into staff values (5000, 'Anita', '111111115', 10, '1990-01-10', 'F');
+ 
+insert into skilled_labor values ('111111115', 'operator');
+insert into skilled_labor values ('111111116', 'technician');
+insert into skilled_labor values ('111111117', 'operator');
+insert into skilled_labor values ('111111118', 'technician');
+
+INSERT INTO riderestrictions (Restriction_id, Height, Weight, Health) VALUES
+(1, '1-7ft', '100-150', 'Weak Heart Conditions'),
+(2, '3-5ft', '100-150', 'Weak Heart Conditions'),
+(3, '3-5ft', '150-200', 'Weak Heart Conditions'),
+(4, '3-5ft', '100-150', 'Blood Pressure Issues'),
+(5, '1-2ft', '100-150', 'Weak Heart Conditions'),
+(6, '', '', ''),
+(7, '1-2ft', '50-100', 'Weak Heart Conditions'),
+(8, '1-7ft', '100-150', 'Blood Pressure Issues'),
+(9, '1-7ft', '150-200', 'Weak Heart Conditions'),
+(10, '3-5ft', '150-200', 'gugudf'),
+(11, '1-7ft', '50-100', 'Weak Heart Conditions'),
+(12, '1-2ft', '150-200', 'Blood Pressure Issues');
+
+INSERT INTO Ride (Ride_No, Status, Ride_Name, Ride_Location, Max_Occupancy, Duration, Ride_Type, Restriction_id) VALUES ('1', 'Under Maintenance', 'Titan', 'EAST', '20', '1', 'Land', '7'), ('2', 'Under Maintenance', 'Aquaman The Ride', 'NORTH', '20', '1', 'Water', '8'); 
+
+INSERT INTO ride (Ride_No, Status, Ride_Name, Ride_Location, Max_Occupancy, Duration, Ride_Type, Restriction_id) VALUES ('3', 'Closed', 'Manta', 'EAST', '20', '1', 'Water', '7'), ('4', 'Open', 'Batman The Ride', 'SOUTH', '20', '1', 'Land', '7'); 
+
+
+INSERT INTO ride (Ride_No, Status, Ride_Name, Ride_Location, Max_Occupancy, Duration, Ride_Type, Restriction_id) VALUES ('5', 'Open', 'Space Mountain', 'EAST', '20', '3', 'Land', '10');
+
+/* Testing Trigger 1 */
+
+update stall set mgr_ssn = '111111111' where stall_id = 1;
+SELECT * FROM manager_start_date;
+
+update stall set mgr_ssn = '111111114' where stall_id = 2;
+SELECT * FROM manager_start_date;
+
+/* Testing Trigger 2 */
+
+update staff set salary = 100 where ssn = '111111111';
+SELECT * FROM staff_salary_log
+
+update staff set salary = 7000 where ssn = '111111112';
+SELECT * FROM staff_salary_log
+
+update staff set salary = 3000 where ssn = '111111113';
+SELECT * FROM staff_salary_log
+
+

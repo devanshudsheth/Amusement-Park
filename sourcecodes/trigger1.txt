@@ -1,0 +1,8 @@
+DELIMITER $$
+CREATE TRIGGER log_manager_changes
+ AFTER UPDATE ON stall
+            FOR EACH ROW
+            if not (new.Mgr_ssn <=> old.Mgr_ssn) then
+INSERT into manager_start_date(MgrSSN, Stall_id,Mgr_start_date)values ( new.mgr_ssn, new.stall_id, CURRENT_DATE);
+            end if;
+

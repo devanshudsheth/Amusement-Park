@@ -1,0 +1,912 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundation | Welcome</title>
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="resources/icons/foundation_icons_general_enclosed/stylesheets/general_enclosed_foundicons.css">
+
+<style>
+	#ridetable .nohover:hover
+	{
+		background-color:white;
+	}
+	
+	#ridetable .soldclass,
+	#userbids .soldclass,
+	#bidsforproduct .soldclass
+	{
+		background-color : #e4e4e4;
+	}
+	
+	#ridetable .soldclass:hover,
+	#searchproducts .soldclass:hover,
+	#userproducts .soldclass:hover,
+	#userbids .soldclass:hover,
+	#bidsforproduct .soldclass:hover
+	{
+		background-color : #CCCCCC;
+	}
+	
+	#ridetable tr .nobordernohover:hover
+	{
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+	}
+	
+	
+	
+	#ridetable tr .nobordernohover
+  	{
+		border : none;
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+  	}
+	
+	#searchproducts .nohover:hover
+	{
+		background-color:white;
+	}
+	
+	#searchproducts .soldclass
+	{
+		background-color : #e4e4e4;
+	}
+	
+	#searchproducts tr .nobordernohover:hover
+	{
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+	}
+	
+	#searchproducts tr .nobordernohover
+  	{
+		border : none;
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+  	}
+	
+	#userproducts .nohover:hover
+	{
+		background-color:white;
+	}
+	
+	#userproducts tr .nobordernohover:hover
+	{
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+	}
+	
+	#userproducts .soldclass
+	{
+		background-color : #e4e4e4;
+	}
+	
+	#userproducts tr .nobordernohover
+  	{
+		border : none;
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+  	}
+	
+	#userbids .nohover:hover
+	{
+		background-color:white;
+	}
+	
+	#userbids tr .nobordernohover:hover
+	{
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+	}
+	
+	#userbids tr .nobordernohover
+  	{
+		border : none;
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+  	}
+	
+	#bidsforproduct .nohover:hover
+	{
+		background-color:white;
+	}
+	
+	#bidsforproduct tr .nobordernohover:hover
+	{
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+	}
+	
+	#bidsforproduct tr .nobordernohover
+  	{
+		border : none;
+		background-color:red;
+			/* background-image:url('../resources/images/blackbg.jpg'); */
+		
+  	}
+	
+	
+	
+	.foundicon-up-arrow
+	{
+		cursor:pointer;
+		float:right;
+	}
+	
+	.foundicon-down-arrow
+	{
+		cursor:pointer;
+		float:right;
+	}
+	
+	.class
+	{
+		float:left;
+		margin-right:10px;
+	}
+	
+	
+	
+  
+	
+	#spinner {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+  border: solid 3px;
+  border-color: #555 #fff;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -o-animation-name: rotate;
+  -o-animation-duration: 1.5s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalForm {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color : white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.closespan,
+.closespanmodalForm {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closespan:hover,
+.closespan:focus,
+.closespanmodalForm:hover,
+.closespanmodalForm:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+#bidsforproduct td,#bidsforproduct th,#bidsforproduct tr
+{
+	border:1px solid black;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+
+		<article id="myitems"  class="row column text-center">
+			<div>
+			<div class="row">
+				<!-- <div class="small-4 columns">
+				</div>
+				<div class="small-4 columns"> -->
+					<label class="text-center white middle"><a onclick="enablemodalForm()">Add an Item</a></label>
+					
+					<div id="addprod" class="modalForm">
+				  		<div class="modal-content">
+				  		<div>
+	    		  			<span  class="closespanmodalForm">&times;</span>
+	    		  		</div>
+	    		  		
+				    		<div style="border:1px solid black;height:500px;overflow-y:scroll;background-image:url('../resources/images/blackbg.jpg');">
+				    			<form style="margin-top:20px;" id="addprodform" data-abide novalidate>
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Ride Name</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input type="text" name="rideName" placeholder="Enter the ride name" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>    			
+					    			<div class="row">
+										<div class="small-4 columns">
+											<label for="gender" class="text-right white middle">Ride Type</label>
+										</div>
+										<div class="small-4 columns">
+											<fieldset>
+												<input  type="radio" name="ridetype" value="Land" id="rideland"><label class="white" for="rideland">Land</label>
+												<input type="radio" name="ridetype" value="Water" id="ridewater"><label class="white" for="ridewater">Water</label>
+											</fieldset>
+										</div>
+<div class="small-4 columns">
+										</div>
+										</div>
+
+									<div class="row">
+										<div class="small-4 columns">
+											<label for="ridestatus" class="text-right white middle">Status</label>
+										</div>
+										<div class="small-6 columns">
+											<fieldset>
+												<input  type="radio" name="ridestatus" value="Open" id="statusOpen"><label class="white" for="statusOpen">Open</label>
+												<input  type="radio" name="ridestatus" value="Close" id="statusClose"><label class="white" for="statusClose">Close</label>
+												<input  type="radio" name="ridestatus" value="Under Maintenance" id="statusMaintenance"><label class="white" for="statusMaintenance">Under Maintenance</label>
+
+											</fieldset>
+										</div>
+										<div class="small-4 columns">
+										</div>
+									</div>									
+
+
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Ride Location</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  type="text" name="rideloc" placeholder="Enter the ride location" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Maximum Occupancy</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  type="number" name="maxOcc" placeholder="Enter the maximum occupancy" max="50" min="20" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+				
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Duration</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  type="number" name="duration" placeholder="Enter the duration" max="10" min="1" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>	
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Height Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  list="heights" name="height" placeholder="Enter the height restriction" required/>
+					    			
+										    <datalist id="heights">
+											<option value="1-2ft">
+											<option value="1-7ft">
+											<option value="3-5ft">
+											</datalist>
+									</datalist>			
+									</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Weight Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  list="weights" name="weight" placeholder="Enter the weight restriction" required/>
+					    			
+										    <datalist id="weights">
+											<option value="50-100">
+											<option value="100-150">
+										    <option value="150-200">
+
+											<option value="">
+											</datalist>
+									</datalist>			
+									</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Health Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input  list="health" name="health" placeholder="Enter the health restriction" />
+										<datalist id="health">
+										<option value="Weak Heart Conditions">
+											<option value="Blood Pressure Issues">
+											<option value="3-5ft">
+</datalist>
+
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+					  
+					  				<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Upload Picture</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="image" type="file" name="image"  required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+  				
+					  				<div class="row">
+					  					<div class="small-12 large-12 columns">
+					  						<button id="addprodbutton" class="button" style="background-color:#808080; border-radius:15px;" type="button">Add Product</button>
+					  					</div>
+					  				</div>
+
+								</form>
+
+				    		</div>
+						</div>
+					</div>
+					
+					
+					
+					
+				<!-- </div>
+				<div class="small-4 columns">
+				</div> -->
+			<div id="addprod1" class="modalForm">
+				  		<div class="modal-content">
+				  		<div>
+	    		  			<span  class="closespanmodalForm">&times;</span>
+	    		  		</div>
+	    		  		
+				    		<div style="border:1px solid black;height:500px;overflow-y:scroll;background-image:url('../resources/images/blackbg.jpg');">
+				    			<form style="margin-top:20px;" id="addprodform1" data-abide novalidate>
+								<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Ride Number</label>
+					    				</div>
+					    				<div class="small-4 columns">
+					      					<label id="rideno" name="rideno" class="text-center white middle"></label>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Ride Name</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="rideName" type="text" name="rideName" placeholder="Enter the ride name" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>    			
+					    			<div class="row">
+										<div class="small-4 columns">
+											<label for="gender" class="text-right white middle">Ride Type</label>
+										</div>
+										<div class="small-4 columns">
+											<fieldset>
+												<input id="radio1" type="radio" name="ridetype" value="Land" id="rideland"><label class="white" for="rideland">Land</label>
+												<input id="radio2" type="radio" name="ridetype" value="Water" id="ridewater"><label class="white" for="ridewater">Water</label>
+											</fieldset>
+										</div>
+<div class="small-4 columns">
+										</div>
+										</div>
+
+									<div class="row">
+										<div class="small-4 columns">
+											<label for="ridestatus" class="text-right white middle">Status</label>
+										</div>
+										<div class="small-6 columns">
+											<fieldset>
+												<input id="radio3" type="radio" name="ridestatus" value="Open" id="statusOpen"><label class="white" for="statusOpen">Open</label>
+												<input id="radio4" type="radio" name="ridestatus" value="Close" id="statusClose"><label class="white" for="statusClose">Close</label>
+												<input id="radio5" type="radio" name="ridestatus" value="Under Maintenance" id="statusMaintenance"><label class="white" for="statusMaintenance">Under Maintenance</label>
+
+											</fieldset>
+										</div>
+										<div class="small-4 columns">
+										</div>
+									</div>									
+
+
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Ride Location</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="rideLoc" type="text" name="rideloc" placeholder="Enter the ride location" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Maximum Occupancy</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="maxOcc" type="number" name="maxOcc" placeholder="Enter the maximum occupancy" max="50" min="20" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+				
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Duration</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="duration" type="number" name="duration" placeholder="Enter the duration" max="10" min="1" required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>	
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Restriction ID</label>
+					    				</div>
+					    				<div class="small-4 columns">
+					      					<label id="restrid" name="restrid" class="text-center white middle"></label>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Height Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="height" list="heights" name="height" placeholder="Enter the height restriction" required/>
+					    			
+										    <datalist id="heights">
+											<option value="1-2ft">
+											<option value="1-7ft">
+											<option value="3-5ft">
+											</datalist>
+									</datalist>			
+									</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+									
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Weight Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="weight" list="weights" name="weight" placeholder="Enter the weight restriction" required/>
+					    			
+										    <datalist id="weights">
+											<option value="50-100">
+											<option value="100-150">
+										    <option value="150-200">
+
+											<option value="">
+											</datalist>
+									</datalist>			
+									</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+
+									<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Health Restriction</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="health1" list="health" name="health" placeholder="Enter the health restriction" />
+										<datalist id="health">
+										<option value="Weak Heart Conditions">
+											<option value="Blood Pressure Issues">
+											<option value="3-5ft">
+</datalist>
+
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+					  
+					  				<div class="row">
+					    				<div class="small-4 columns">
+					      					<label class="text-right white middle">Upload Picture</label>
+					    				</div>
+					    				<div class="small-4 columns">
+				      					<input id="image" type="file" name="image"  required/>
+					    				</div>
+					    				<div class="small-4 columns">
+					    				</div>
+					  				</div>
+  				
+					  				<div class="row">
+					  					<div class="small-12 large-12 columns">
+										
+					  						<button id="savebutton"  class="button" style="background-color:#808080; border-radius:15px;" type="button">Save Changes</button>
+					  					</div>
+					  				</div>
+
+								</form>
+
+				    		</div>
+						</div>
+					</div>	
+				
+				
+			</div>
+			<div class="row">
+					<label id="USER" class="text-center white middle"></label>
+			</div>
+				<table id="ridetable"  style="color:black;">
+				<thead style="background-color:#808080;">
+				<tr id="trheader">
+				<th >Ride Names</th>
+				</tr>
+				</thead>
+				</table>
+				
+			</div>
+		<!-- 	<div id="bidsforproductdiv" style="visibility:hidden;overflow-y:scroll;height:200px;">
+				<table id="bidsforproduct" class="unstriped hover" style="color:black;">
+				</table>
+			</div> -->		
+		</article>
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+	
+	<script>
+      
+      $(".closespan").click(function() {
+    	  $(".modal").css('display','none');
+    	});
+      
+      $(".closespanmodalForm").click(function() {
+    	  $(".modalForm").css('display','none');
+    	});
+      
+      $(window).click(function() {
+    	  
+    	    if ($(event.target).attr('class') == "modal") {
+    	    	  $(".modal").css('display','none');
+    	    }
+    	    
+    	    if ($(event.target).attr('class') == "modalForm") {
+  	    	  $(".modalForm").css('display','none');
+  	    }
+    	});
+      
+      function enablemodalForm()
+      {
+    	  $(".modalForm").css('display','block');
+      }
+   
+   $(function()
+   {
+		
+     		loadAllValues();
+				 
+   });
+   
+   function loadAllValues()
+   {
+   $.ajax(
+     		{
+	           type: "POST",
+	           url: "showrides.php",
+	           data: "",
+	           dataType: "json",
+	          
+	           success: function( data, textStatus, jqXHR) 
+	           {
+					loadFullTable(data)
+				 },
+				 
+				  error: function(jqXHR, textStatus, errorThrown)
+	           {
+	                console.log("Something really bad happened " + textStatus);
+	                alert("BYEEEE" + jqXHR.responseText + "   " + textStatus + "  " +errorThrown);
+	           },
+	          
+     		});     
+   }
+ $('#savebutton').on('click', function()
+{
+	var dataJson = $("#addprodform1").serialize();
+		val1= $("#rideno").text();
+		val2= $("#restrid").text();
+		dataJson += "&rideno=" + val1 + "&restrid="+val2;
+	
+
+		
+    $.ajax(
+     		{
+	           type: "POST",
+	           url: "updateride.php",
+	           data: dataJson,
+	           dataType: "json",
+	          
+	           success: function( data, textStatus, jqXHR) 
+	           {
+	        	
+	        	 
+	   	    	 $("#addprod1").css('display','none');
+				 $("#ridetable tbody").empty();
+				 loadAllValues();
+	
+	           },
+	          
+	           error: function(jqXHR, textStatus, errorThrown)
+	           {
+	                console.log("Something really bad happened " + textStatus);
+	                alert("BYEEEE" + jqXHR.responseText + "   " + textStatus + "  " +errorThrown);
+	           },
+	          
+     		}); 
+			
+    
+});  
+   
+   
+$('#addprodbutton').on('click', function()
+{
+	
+	var dataJson = $("#addprodform").serialize();
+	
+	dataJson = dataJson+"&type=ADD&userName="+null+"&image="+$("#image").val();//FILL
+		
+    $.ajax(
+     		{
+	           type: "POST",
+	           url: "addride.php",
+	           data: dataJson,
+	           dataType: "json",
+	          
+	           success: function( data, textStatus, jqXHR) 
+	           {
+	        	   
+	        	 
+	   	    	 $(".modalForm").css('display','none');
+				 loadTable(data);
+	
+	           },
+	          
+	           error: function(jqXHR, textStatus, errorThrown)
+	           {
+	                console.log("Something really bad happened " + textStatus);
+	                alert("BYEEEE" + jqXHR.responseText + "   " + textStatus + "  " +errorThrown);
+	           },
+	          
+     		});     
+     		
+});
+
+
+
+function loadTable(data)
+{
+	table = "#ridetable";
+	
+
+			var row = document.createElement("tr");
+			rideName = data[1];
+							var productCol = document.createElement("td");
+				$(productCol).append("<a onclick='return getRideDetails("+data[2]+")'  role=\"button\">"+rideName+"</a>");
+				$(row).append($(productCol));
+
+			$(table).append($(row));
+	var delCol = document.createElement("td");
+		
+			$(delCol).append("<a onclick='deleteRide("+data[2]+",this)' href=\" \" role=\"button\">Delete</a>");
+
+			$(row).append($(delCol));
+		//$(row).attr('onclick','respondtoclick(\''+type+'\',this,'+'\''+product.image+'\')');
+	
+
+
+
+
+};
+
+
+function getRideDetails(rideNo)
+{
+
+	$.ajax(
+     		{
+	           type: "POST",
+	           url: "getRide.php",
+	           data: "id="+rideNo,
+	           dataType: "json",
+	          
+	           success: function( data, textStatus, jqXHR) 
+	           {
+
+			   element = data[0];
+					$("#rideName").val(element["Ride_Name"]);
+	   	    	 	$("#rideLoc").val(element["Ride_Location"]);
+					$("#height").val(element["Height"]);
+					$("#weight").val(element["Weight"]);
+					$("#health1").val(element["Health"]);
+					$("#duration").val(element["Duration"]);
+					$("#maxOcc").val(element["Max_Occupancy"]);
+					$("#rideno").text(element["Ride_No"]);
+					$("#restrid").text(element["Restriction_id"]);
+					
+					if (element["Status"] == "Open")
+					{
+						$("#radio3").prop("checked", true);
+					}
+					else if (element["status"] == "Close")
+					{
+											$("#radio4").prop("checked", true);
+
+					}
+					else{
+											$("#radio5").prop("checked", true);
+
+					}
+					
+					if (element["Ride_Type"] == "Land")
+					{
+											$("#radio1").prop("checked", true);
+
+					}
+				
+					else{
+						$("#radio2").prop("checked", true);
+					
+					}
+					
+										$("#addprod1").css('display','block');
+
+				
+				 },
+				           
+     		}); 
+			
+
+				 
+
+}
+
+function deleteRide(rideNo, row)
+{
+$.ajax(
+     		{
+	           type: "POST",
+	           url: "deleteride.php",
+	           data: "id="+rideNo,
+	           dataType: "json",
+	          
+	           success: function( data, textStatus, jqXHR) 
+	           {
+	        	   
+	        	 $(row).remove();
+	   	    	 
+				 },
+				 
+	          
+     		}); 
+				 
+}
+
+function loadFullTable(data)
+{
+	table = "#ridetable";
+	
+	 $.each(data, function(index, element){
+                  
+			var row = document.createElement("tr");
+			rideName = element["Ride_Name"];
+							var productCol = document.createElement("td");
+				$(productCol).append("<a onclick='return getRideDetails("+element["Ride_No"]+")'  role=\"button\">"+rideName+"</a>");
+				$(row).append($(productCol));
+
+			$(table).append($(row));
+	var delCol = document.createElement("td");
+		
+			$(delCol).append("<a onclick='deleteRide("+element["Ride_No"]+",this)' href=\" \" role=\"button\">Delete</a>");
+			$(row).append($(delCol));
+			});
+		//$(row).attr('onclick','respondtoclick(\''+type+'\',this,'+'\''+product.image+'\')');
+	
+
+
+
+
+};
+
+
+
+      
+    </script>
+			</body>
+
+		</html>

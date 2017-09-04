@@ -1,0 +1,50 @@
+delimiter $$
+CREATE  PROCEDURE ride_status(INOUT ridelist VARCHAR(400000))
+BEGIN
+  declare v_finished integer default 0;
+  declare v_ridename varchar(40) default "";
+  declare v_rideno varchar(4) default "";
+  declare v_ridestatus varchar(15) default "";
+  declare v_rideopen varchar(1000) DEFAULT "";
+  declare v_rideclosed varchar(1000) DEFAULT "";
+  declare v_ridemainten varchar(1000) DEFAULT "";
+  declare v_rideopen1 varchar(10000) DEFAULT "";
+  declare v_rideclosed1 varchar(10000) DEFAULT "";
+  declare v_ridemainten1 varchar(10000) DEFAULT "";
+  declare cur1 cursor FOR
+  select Ride_name, Ride_No, Status from ride;
+  declare CONTINUE HANDLER
+  for not found set v_finished = 1;
+  open cur1;
+  getride: LOOP
+    fetch cur1 into v_ridename, v_rideno, v_ridestatus;
+    if v_finished = 1 
+      then LEAVE getride;
+    end if;
+    if( v_ridestatus = "open") then
+      set v_rideopen = concat( "Ride Number= ", v_rideno, " , " , "Ride Name = " , v_ridename, " ," ,     "Ride Status= " , "OPEN");
+      set v_rideopen1 = concat_ws( '
+ ',  v_rideopen, v_rideopen1);
+	elseif( v_ridestatus = "closed") then
+      set v_rideclosed =  concat( "Ride Number= ", v_rideno, " , " , "Ride Name = " , v_ridename, " , ", "Ride Status= " , "CLOSED");
+      set v_rideclosed1 = concat_ws( '
+', v_rideclosed, v_rideclosed1);
+ 
+	else
+      set v_ridemainten =  concat( "Ride Number= ", v_rideno, " , " , "Ride Name = " , v_ridename, " , ", "Ride Status= " , "MAINTENANCE");
+      set v_ridemainten1 = concat_ws( '
+',  v_ridemainten, v_ridemainten1);
+    end if;
+
+    set ridelist = concat_ws( '', v_rideopen1, v_rideclosed1, v_ridemainten1);
+end loop getride;
+close cur1;
+end$$
+
+
+/*Calling the procedure*/
+Set @ridelist="";
+Call ride_status(@ridelist);
+Select @ridelist;
+
+
